@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Cloud</title>
+
+    <link rel="icon" href="../images/favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./styles/register.css">
+
+</head>
+
+<body>
+
+<form action="http://localhost:8800/register/" method="POST">
+
+        <h1>Cloud | Register</h1>
+
+        <!-- Input de apelido -->
+        <div class="input-field">
+            <label for="nick">
+                Apelido
+                <div class="barra"></div>
+            </label>
+            <input type="text" name="nick" placeholder="jamesFruta17" required>
+        </div>
+        <!-- Input de email -->
+        <div class="input-field">
+
+            <label for="email">
+                Email
+                <div class="barra"></div>
+            </label>
+
+            <input type="email" name="email" placeholder="xxxxx@xxxxx.com" required>
+        </div>
+        <!-- Input de password -->
+        <div class="input-field">
+            <label for="password">
+                Senha
+                <div class="barra"></div>
+            </label>
+            <input type="password" name="password" placeholder="xxxxxxxx@!$y" required>
+        </div>
+
+        <label for="checkbox" class="checkbox-label">
+            <input type="checkbox" id="checkbox">
+            Receber promoções de jogos!
+          </label>
+          <!-- Button de submit -->
+        <button type="submit">Criar conta</button>
+          <!-- Suporte ao User -->
+        <div class="sup">
+            <ul>
+                <li><a href="http://127.0.0.1:5500/frontend/public/login.html">Entrar na conta</a></li>
+                <li><a href="#">Esqueci a senha</a></li>
+            </ul>
+        </div>
+    </form>
+
+</body>
+
+</html>
