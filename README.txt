@@ -1,38 +1,66 @@
-# front end
-criar uma tela de login OK
-criar uma tela de cadastro OK
-fazer o css OK
+Nome projeto: Cloud.
 
--manter simplicidade e modernalidade OK
--criar tudo dentro do form OK
+INSTALAÇÃO DO PROJETO NO SEU PC:
+https://github.com/easymoneyspike/cloud.git
 
-# backend com node.js
-criar todo servidor OK
-criar o banco de dados no mongoDB OK
-implementar o back-end no front-end OK
-mandar dados do formulario de login para o Database OK
+VÁ A PASTA DO PROJETO PARA INSTALAR DEPENDÊNCIAS:
 
-features:
--usar async/await OK
--verificação de email existente no google
--privatização de páginas sem login
--salvar dados do user no banco de dados OK
--criar uma tela simples de perfil retornado todos os dados
+npm install ou npm i
 
-VERIFICAR se EMAIL EXISTE (nodemailer);
-VERIFICAR se a SENHA está FORTE;
+CONFIGURAÇÃO:
+Renomeie o arquivo .env.example para .env e atualize as variáveis de ambiente conforme necessário.
 
-CRIPTOGRAFIA com HASH (sem prioridade)
+INICIAR SERVIDOR:
+npm run dev
 
+ACESSE O APP NO SEU NAVEGADOR EM:
+http://localhost:5000
 
---API--
-PROTEGER API/PROTEGER ROTA, para PESSOAS não AUTORIZADAS;
+*OBS: ISSO É A API DE USERS*
 
---PARTES VISUAIS--
+FUNCIONALIDADES:
+- Registro de novos usuários.
+- Autenticação de usuários.
+- Validação de entrada para garantir dados corretos.
+- Envio de e-mails de verificação.
+- CRUD (Create, Read, Update, Delete) de usuários.
 
-MODAL no login em caso de erro ou sucesso;
-MODAL no cadastro em caso erro ou sucesso;
+FUTURAS FUNCIONALIDADES:
+- Página com jogos carregadas de API.
+- Cadastro de um novo jogo via WEB e API.
+- Ter login para acessar páginas.
 
-PÁGINA HTML para inserir o código enviado pelo nodemailer;
+TECNOLOGIAS UTILIZADAS
+- Node.js
+ -- Nodemailer
+ -- Nodemon
+- Express.js
+- MongoDB
+  -- Mongoose
+- HTML
+- CSS
+- JavaScript
 
-PÁGINA HTML para ser a home!
+CONTRIBUIÇÃO:
+Contribuições são bem-vindas! Se você deseja contribuir para o projeto, siga as etapas abaixo:
+
+1.Faça um fork do repositório.
+
+2.Crie uma branch para sua feature ou correção: git checkout -b minha-feature.
+
+3.Faça as alterações desejadas e adicione os arquivos modificados: git add ..
+
+4.Faça um commit das alterações: git commit -m "Minha feature legal".
+
+5.Envie suas alterações para o repositório remoto: git push origin minha-feature.
+
+6.Envie um pull request para o repositório original.
+
+LICENÇA
+Este projeto está licenciado sob a MIT License.
+
+CONTATO
+Para qualquer dúvida ou sugestão, entre em contato conosco pelo e-mail euryanspike.pro@gmail.com
+
+AGRADECIMENTOS
+Gostaríamos de agradecer a todos os recursos e contribuições externas que tornaram este projeto possível.
