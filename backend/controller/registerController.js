@@ -1,45 +1,55 @@
-import User from '../models/userSchema.js' // importe do UserSchema 
+import { check, validationResult } from 'express-validator'
 
-import { sendEmailVerify, codeAuth } from './emailController.js' // importe: enviar email e gerar código segurança
+import User from '../models/userSchema.js'; // importe do UserSchema 
+
+import { sendEmailVerify, codeAuth } from './emailController.js'; // importe: enviar email e gerar código segurança
 
 let userData = {}; // transferindo para escopo global os dados do userSave
 
 export const registerUser = async (req, res) => {
-    const { nick, email, password } = req.body; // dados passado do form pelo User
+    const { nick, email, password } = req.body;
 
     try {
         const existingUser = await User.findOne({ $or: [{ nick: nick }, { email: email }] });
 
         if (existingUser) {
 
-            //verificação de mesmo nick no DB 
-
             if (existingUser.nick === nick) {
-                console.log('Esse apelido já está cadastrado!');
-                return res.status(409).send({ msg: 'Esse nick já está cadastrado, escolha outro!' })
+                return res.status(409);
             }
-
-            //verificação de mesmo email no DB 
 
             if (existingUser.email === email) {
-                console.log('Esse email já está cadastrado!');
-                return res.status(409).send({ msg: 'Esse email já está cadastrado, faça login!' })
+                return res.status(409);
             }
-        } 
-
-        //código de verificação, no email passado pelo user
-
-        else {
-            userData = { nick, email, password };
-            // sendEmailVerify(email) //envio do email
-            console.log(codeAuth);
-            return res.status(200).redirect('http://127.0.0.1:5500/frontend/public/verify.html')
         }
+
+        await validatePassword(password); // Verificar senha
+
+        userData = { nick, email, password };
+        sendEmailVerify(email) //envio do email
+
+        console.log(codeAuth); // código de confirmação
+
+        return res.status(200).redirect('http://127.0.0.1:5500/frontend/public/views/verify.html');
+
     } catch (err) {
         return res.status(500).send({ msg: 'Não foi possível cadastrar o usuário!' + err });
+    };
+
+    async function validatePassword(password) {
+        await check('password')
+            .isLength({ min: 6 }).withMessage('A senha deve ter no mínimo 6 caracteres')
+            .matches(/[a-zA-Z]/).withMessage('A senha deve conter pelo menos uma letra')
+            .matches(/[!@#$%^&*()]/).withMessage('A senha deve conter pelo menos um símbolo')
+            .run(req);
+
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            throw new Error('Verificação de senha falhou');
+        }
     }
 }
-
 
 export const verifierUser = async (req, res) => {
     const { codeUser } = req.body;
@@ -55,5 +65,3 @@ export const verifierUser = async (req, res) => {
         console.log('NAO FOI POSSIVEL VERIFICAR - ' + err);
     }
 }
-
-

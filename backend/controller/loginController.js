@@ -1,5 +1,9 @@
 import User from '../models/userSchema.js'
 
+export const loginUserPage = async (req, res) => {
+  res.render('login')
+}
+
 export const loginUser = async (req, res) => {
     const email = req.body.email;
     const password = parseInt(req.body.password);

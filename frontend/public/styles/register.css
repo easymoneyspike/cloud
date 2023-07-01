@@ -45,7 +45,7 @@ form {
     background-color: black;
 }
 
-.input-field>input {
+.input {
     padding: 10px;
     margin-top: 6px;
     border: 2px solid transparent;
@@ -57,7 +57,7 @@ form {
     transition: 100ms;
 }
 
-.input-field>input:focus {
+.input:focus {
     border: 2px solid black;
 }
 
@@ -132,6 +132,12 @@ input[type="checkbox"]:checked{
 
 input[type="checkbox"]:checked:after{
     display: block;
+}
+
+.message{
+    font-weight: 600;
+    font-size: 12px;
+    margin: 4px 4px;
 }
 
 
